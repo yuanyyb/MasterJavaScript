@@ -5,7 +5,7 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             //"url": "http://localhost:8080",
-            "file": "${workspaceRoot}/Chapter3/show.html",
+            "file": "${workspaceRoot}/Chapter4/show.html",
             "webRoot": "${workspaceRoot}"
         },
         {
