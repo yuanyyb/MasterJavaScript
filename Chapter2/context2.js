@@ -1,3 +1,77 @@
+//代码清单2-1
+// window.onload = function() {
+//     var obj = {};
+//     var refToObj = obj;
+//     obj.oneProperty = true;
+//     console.log(obj.oneProperty === refToObj.oneProperty);
+//     refToObj.twoProperty = 1;
+//     console.log(obj.twoProperty === refToObj.twoProperty);
+//这种修改在两个变量上都能生效，因为这两个变量都是引用
+//此时obj和refToObj指向同一个对象，只是同一个对象的属性发生了变化
+// }
+
+// //代码清单2-2
+// window.onload = function(){
+//     var items =['one','two','three'];
+//     var itemsref = items;
+//     items.push('four');
+//     console.log(items.length==itemsref.length);//true
+//     //数组本质上，值是作为数组对象的属性来存储的，所以items和itemsref的长度相同
+// }
+
+//代码清单2-3
+// window.onload = function() {
+//         var items = ['1', '2', '3']; //此时items指向数组1
+//         var itemsref = items; //此时itemsref也指向数组1
+//         items = ['1', '2']; //此时items指向了一个新数组，但itemsref仍然指向数组1
+//         //此时items和itemsref指向了不同的对象，引用只能指向指称对象，不能指向另一个引用
+//         //所以items != itemsref
+//     }
+
+//代码清单2-4
+// window.onload = function() {
+//     //以下情况不是引用的问题，因变量中的是原始值，不能作为指称目标
+//     // var item = 12;
+//     // var itemref = item;
+//     // item += 1;
+//     // console.log(item);  //13
+//     // console.log(itemref);  //12
+
+//     // var item = 'test';
+//     // var itemref = item;
+//     // item += 'ing';
+//     // console.log(item);  //testing
+//     // console.log(itemref);  //test
+
+
+//     // var item = 'test';
+//     // var itemref = item;
+//     // item += 'ing';
+//     // console.log(item);  //testing
+//     // console.log(itemref);  //test
+
+//     //item中是原始值,item不是指称目标，所以包含原始值的变量item不是引用（区别引用）
+//     //    
+// }
+
+//代码清单2-7
+// window.onload = function() {
+//     function setFoo(fooinput) {
+//         this.foo = fooinput;
+//     }
+//     var foo = 5;
+//     console.log(foo); //5
+//     var obj = {
+//         foo: 10
+//     }
+//     console.log(obj.foo); //10
+//     setFoo(15);
+//     console.log(foo); //5
+//     obj.setFoo = setFoo;
+//     obj.setFoo(20);
+//     console.log(obj.foo); //20
+// }
+
 //代码清单2-8
 // function changeColor(color) {
 //     this.style.backgroundColor = color;
@@ -34,18 +108,18 @@
 // })();
 
 //代码清单2-12 使用匿名函数来生成创建多个闭包函数所需的作用域
-// window.onload = function() {
-//     var obj = document.getElementById('main');
-//     var items = ['click', 'keypress'];
-//     for (var i = 0; i < items.length; i++) {
-//         (function() {
-//             var item = items[i];
-//             obj['on' + item] = function() {
-//                 console.log('--------' + item);
-//             };
-//         })();
-//     }
-// }
+window.onload = function() {
+    var obj = document.getElementById('main');
+    var items = ['click', 'keypress'];
+    for (var i = 0; i < items.length; i++) {
+        (function() {
+            var item = items[i];
+            obj['on' + item] = function() {
+                console.log('--------' + item);
+            };
+        })();
+    }
+}
 
 //代码清单2-13 函数重载
 // function sendMsg(msg, obj) {
