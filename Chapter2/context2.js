@@ -108,18 +108,18 @@
 // })();
 
 //代码清单2-12 使用匿名函数来生成创建多个闭包函数所需的作用域
-window.onload = function() {
-    var obj = document.getElementById('main');
-    var items = ['click', 'keypress'];
-    for (var i = 0; i < items.length; i++) {
-        (function() {
-            var item = items[i];
-            obj['on' + item] = function() {
-                console.log('--------' + item);
-            };
-        })();
-    }
-}
+// window.onload = function() {
+//     var obj = document.getElementById('main');
+//     var items = ['click', 'keypress'];
+//     for (var i = 0; i < items.length; i++) {
+//         (function() {
+//             var item = items[i];
+//             obj['on' + item] = function() {
+//                 console.log('--------' + item);
+//             };
+//         })();
+//     }
+// }
 
 //代码清单2-13 函数重载
 // function sendMsg(msg, obj) {
